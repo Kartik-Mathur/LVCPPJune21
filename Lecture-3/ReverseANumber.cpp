@@ -15,6 +15,7 @@ int main() {
 		n /= 10;
 	}
 	cout << sum + 100 << endl;
+	// adding random things
 
 	return 0;
 }

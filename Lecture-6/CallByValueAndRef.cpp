@@ -2,15 +2,15 @@
 #include <iostream>
 using namespace std;
 
-void Update(int &a) { // call by reference
-	a = a + 1;
-	// cout << "Inside Function " << a << endl;
-}
-
-// void Update(int a) { // Call by value
+// void Update(int &a) { // call by reference
 // 	a = a + 1;
 // 	// cout << "Inside Function " << a << endl;
 // }
+
+void Update(int a) { // Call by value
+	a = a + 1;
+	// cout << "Inside Function " << a << endl;
+}
 
 int main() {
 

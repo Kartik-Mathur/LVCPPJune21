@@ -15,13 +15,13 @@ void Permutations(char* a, int i) {
 		Permutations(a, i + 1);
 		swap(a[i], a[j]);
 	}
-
 }
+
 
 int main() {
 
 	char a[] = "abc";
-	Permutations(a, 0);
+	Permutations1(a, 0, 0);
 
 	return 0;
 }

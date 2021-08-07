@@ -1,5 +1,5 @@
 class Solution {
-public:
+public:// https://leetcode.com/problems/palindrome-partitioning/
     vector<vector<string>> ans;
     vector<vector<string>> partition(string s) {
         vector<string> curr_ans;

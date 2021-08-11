@@ -1,5 +1,5 @@
 class Solution {
-public://https://leetcode.com/problems/different-ways-to-add-parentheses/
+public: //https://leetcode.com/problems/different-ways-to-add-parentheses/
     vector<int> diffWaysToCompute(string s) {
 
         vector<int> ans;

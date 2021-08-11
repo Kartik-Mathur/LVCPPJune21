@@ -3,14 +3,14 @@ using namespace std;
 
 int main() {
 
-	int a[] = {2, 3};
-	int b[] = {4, 5};
+	int left[] = {2, 3};
+	int right[] = {4, 5};
 	int n = 2;
 	int m = 2;
 
 	for (int i = 0 ; i < n ; i++) {
 		for (int j = 0 ; j < m ; j++) {
-			cout << a[i]*b[j] << " ";
+			cout << left[i]*right[j] << " ";
 		}
 	}
 	cout << endl;

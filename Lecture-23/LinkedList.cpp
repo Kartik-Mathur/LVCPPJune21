@@ -214,20 +214,92 @@ void BubbleSortLL(node* &head) {
 	}
 }
 
-int main() {
-	node* head, *tail;
-	head = tail = NULL;
+node* merge(node* h1, node* h2) {
+	// base case
+	if (h1 == NULL) {
+		return h2;
+	}
+	if (h2 == NULL) {
+		return h1;
+	}
+	// recursive case
+	node* nH = NULL;
+	if (h1->data < h2->data) {
+		nH = h1;
+		nH->next = merge(h1->next, h2);
+	}
+	else {
+		nH = h2;
+		nH->next = merge(h1, h2->next);
+	}
+	return nH;
+}
 
-	// InsertAtFront(head, tail, 1);
-	// InsertAtFront(head, tail, 2);
-	// InsertAtFront(head, tail, 3);
-	// InsertAtFront(head, tail, 4);
-	// InsertAtFront(head, tail, 5);
-	InsertAtEnd(head, tail, 1); //0
-	InsertAtEnd(head, tail, 2); //1
-	InsertAtEnd(head, tail, 3); //2
-	InsertAtEnd(head, tail, 4); //3
-	InsertAtEnd(head, tail, 5); //4
+node* mergeSort(node* head) {
+	// if (head == NULL) {
+	// 	return head;
+	// }
+	// if (head->next == NULL) {
+	// 	return head;
+	// }
+	if (head == NULL || head->next == NULL) {
+		return head;
+	}
+
+	// 1. Divide
+	node* m = mid(head);
+	node* a = head;
+	node* b = m->next;
+	m->next = NULL;
+
+	// 2. Sort
+	a = mergeSort(a);
+	b = mergeSort(b);
+
+	// 3. Merge
+	node* newHead = merge(a, b);
+	return newHead;
+}
+
+int main() {
+	node* head, *tail, *h1, *t1;
+	head = tail = h1 = t1 = NULL;
+
+
+	// InsertAtEnd(head, tail, 1);
+	// InsertAtEnd(head, tail, 3); //1
+	// InsertAtEnd(head, tail, 4); //2
+	// InsertAtEnd(head, tail, 5); //3
+	// InsertAtEnd(head, tail, 7); //4
+	// InsertAtEnd(head, tail, 9); //5
+
+	// InsertAtEnd(h1, t1, 2);
+	// InsertAtEnd(h1, t1, 6);
+	// InsertAtEnd(h1, t1, 8);
+	// InsertAtEnd(h1, t1, 10);
+	// InsertAtEnd(h1, t1, 11);
+
+	// PrintLL(head);
+	// PrintLL(h1);
+
+	// node* newHead = merge(head, h1);
+	InsertAtEnd(head, tail, 5);
+	InsertAtEnd(head, tail, 2);
+	InsertAtEnd(head, tail, 1);
+	InsertAtEnd(head, tail, 7);
+	InsertAtEnd(head, tail, 6);
+	InsertAtEnd(head, tail, 3);
+	PrintLL(head);
+	head = mergeSort(head);
+	PrintLL(head);
+
+
+
+	// InsertAtEnd(head, tail, 1); //0
+	// InsertAtEnd(head, tail, 2); //1
+	// InsertAtEnd(head, tail, 3); //2
+	// InsertAtEnd(head, tail, 4); //3
+	// InsertAtEnd(head, tail, 5); //4
 	// InsertAtEnd(head, tail, 6); //5
 	// PrintLL(head);
 	// node* ans = mid(head);
@@ -237,10 +309,10 @@ int main() {
 	// else {
 	// 	cout << "Mid element is " << ans->data << endl;
 	// }
-	ReverseLL(head, tail);
-	PrintLL(head);
-	BubbleSortLL(head);
-	PrintLL(head);
+	// ReverseLL(head, tail);
+	// PrintLL(head);
+	// BubbleSortLL(head);
+	// PrintLL(head);
 	// InsertAtMid(head, tail, 4, 7);
 	// deleteAtFront(head, tail);
 	// deleteAtEnd(head, tail);

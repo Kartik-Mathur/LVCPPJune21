@@ -22,6 +22,7 @@ class Minheap {
 			heapify(min);
 		}
 	}
+
 public:
 	Minheap() {
 		v.push_back(-1);// To ignore the zeroth index
